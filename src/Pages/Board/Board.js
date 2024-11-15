@@ -15,7 +15,7 @@ import {
   TextField,
   Autocomplete,
 } from "@mui/material";
-import { fetchSingleData } from "../../utils/Utils";
+import { fetchSingleData } from "../../Utils/Utils";
 
 const Board = () => {
   const [events, setEvents] = useState([]);

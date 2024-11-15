@@ -3,7 +3,7 @@ import "../../Styles/Component.css";
 import React, { useState, useEffect } from "react";
 import { TextField, Button, TextareaAutosize } from "@mui/material";
 import axios from "axios";
-import { handleAddItem, handleRemoveItem } from "../../utils/Utils";
+import { handleAddItem, handleRemoveItem } from "../../Utils/Utils";
 import MultiSelectAutocomplete from "../../components/MultiSelectAutocomplete/MultiSelectAutocomplete";
 import SingleSelectAutocomplete from "../../components/SingleSelectAutocomplete/SingleSelectAutocomplete";
 
