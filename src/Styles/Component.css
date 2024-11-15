@@ -1,0 +1,28 @@
+.countryChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: #e0e0e0;
+  border-radius: 50px; /* 캡슐 모양 */
+  position: relative;
+  font-size: 17px;
+}
+
+.removeButton {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #ffffff; /* X 버튼 색상 */
+  background-color: #ff4040;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: -5px; /* X 버튼 위치 조정 */
+  right: -5px; /* X 버튼 위치 조정 */
+}
+
+.removeButton:hover {
+  color: #ff4040; /* 호버 시 색상 */
+}

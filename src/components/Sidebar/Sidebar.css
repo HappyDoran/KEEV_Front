@@ -1,0 +1,65 @@
+.Sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #2c3e50;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebarWrapper {
+  flex: 1;
+}
+
+.sidebarMenu {
+  margin-bottom: 20px;
+}
+
+.sidebarTitle {
+  cursor: pointer;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  display: flex; /* 추가 */
+  justify-content: space-between; /* 추가 */
+  align-items: center; /* 추가 */
+}
+
+.arrow {
+  transition: transform 0.3s; /* 화살표 회전 효과 */
+}
+
+.arrow.open {
+  transform: rotate(180deg); /* 열린 상태에서 회전 */
+}
+
+.sidebarList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+.sidebarList.open {
+  display: block; /* 클래스가 'open'일 때 보이기 */
+}
+
+.sidebarListItem {
+  margin: 10px 0;
+}
+
+.sidebarListItem a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+  transition: background-color 0.3s;
+  border-radius: 4px;
+}
+
+.sidebarListItem a:hover {
+  background-color: #34495e;
+}

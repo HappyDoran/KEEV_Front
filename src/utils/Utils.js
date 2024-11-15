@@ -1,0 +1,69 @@
+import axios from "axios";
+
+const API_URL = process.env.REACT_APP_URL;
+
+// 공통 fetchData 함수 정의
+export const fetchSingleData = async (url, setData, errorMessage) => {
+  try {
+    const response = await axios.get(`${API_URL}/${url}`);
+    // console.log(response.data);
+
+    setData(response.data);
+  } catch (error) {
+    console.error(`${errorMessage}:`, error);
+  }
+};
+
+// 공통 업로드 함수
+export const handleUploadSingleData = async (
+  data,
+  apiEndpoint,
+  successMessage,
+  errorMessage,
+  fieldName // 동적으로 사용할 필드명 (예: countryName, genreName 등)
+) => {
+  // 필수 값 체크 (동적으로 받은 필드명을 사용하여 체크)
+
+  console.log(data);
+
+  if (!data[fieldName]) {
+    alert("빈 칸없이 채워주세요");
+    return;
+  }
+
+  // 동적으로 필드명을 설정한 데이터 객체 생성
+  const requestData = { [fieldName]: data[fieldName] };
+
+  try {
+    const response = await axios.post(
+      `${API_URL}/${apiEndpoint}`,
+      requestData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    alert(`${successMessage}: ${response.data.id}`);
+    window.location.reload();
+  } catch (error) {
+    console.error(`${errorMessage}:`, error);
+    alert(`${errorMessage}`);
+  }
+};
+
+// 공통 추가 함수
+export const handleAddItem = (type, setData, data, id) => {
+  if (!data[type].includes(id)) {
+    setData({ ...data, [type]: [...data[type], id] });
+  }
+};
+
+// 공통 삭제 함수
+export const handleRemoveItem = (type, setData, data, id) => {
+  setData({
+    ...data,
+    [type]: data[type].filter((itemId) => itemId !== id),
+  });
+};
