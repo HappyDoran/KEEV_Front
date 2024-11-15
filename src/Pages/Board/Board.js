@@ -135,10 +135,7 @@ const Board = () => {
                 >
                   {item.posterURL && (
                     <img
-                      src={`${process.env.PUBLIC_URL}/${item.posterURL.replace(
-                        "../public/",
-                        ""
-                      )}`}
+                      src={item.posterURL.replace}
                       alt={item.name}
                       style={{
                         width: "100px",

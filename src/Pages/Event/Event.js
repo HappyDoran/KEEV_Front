@@ -1,17 +1,7 @@
 import "../../Styles/Layout.css";
 import "../../Styles/Component.css";
 import React, { useState, useEffect } from "react";
-import {
-  TextField,
-  Button,
-  TextareaAutosize,
-  MenuItem,
-  Select,
-  InputLabel,
-  FormControl,
-  Autocomplete,
-  Chip,
-} from "@mui/material";
+import { TextField, Button, TextareaAutosize } from "@mui/material";
 import axios from "axios";
 import { handleAddItem, handleRemoveItem } from "../../utils/Utils";
 import MultiSelectAutocomplete from "../../components/MultiSelectAutocomplete/MultiSelectAutocomplete";

@@ -1,14 +1,6 @@
 import "../../Styles/Layout.css";
 import React, { useState, useEffect } from "react";
-import {
-  TextField,
-  Button,
-  MenuItem,
-  Select,
-  InputLabel,
-  FormControl,
-  Autocomplete,
-} from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import axios from "axios";
 import { fetchSingleData } from "../../utils/Utils";
 import SingleSelectAutocomplete from "../../components/SingleSelectAutocomplete/SingleSelectAutocomplete";
@@ -72,11 +64,25 @@ const Place = () => {
     }
   };
 
+  const Input = ({ label, value, onChange }) => {
+    return (
+      <div className="inputField">
+        <label className="label">{label}</label>
+        <TextField
+          label={label}
+          variant="outlined"
+          fullWidth
+          value={value}
+          onChange={onChange}
+        />
+      </div>
+    );
+  };
+
   return (
     <div className="container">
       <div className="wrapper">
         <h2 className="title">공연장소 등록</h2>
-
         <div className="inputField">
           <label className="label">장소 이름</label>
           <TextField
