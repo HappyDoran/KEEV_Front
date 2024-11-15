@@ -3,7 +3,7 @@ import "../../Styles/Component.css";
 import React, { useState, useEffect } from "react";
 import { TextField, Button, TextareaAutosize } from "@mui/material";
 import axios from "axios";
-import { fetchSingleData } from "../../Utils/Utils";
+import { fetchSingleData } from "../../utils/Utils";
 import MultiSelectAutocomplete from "../../components/MultiSelectAutocomplete/MultiSelectAutocomplete";
 
 const Artist = () => {
