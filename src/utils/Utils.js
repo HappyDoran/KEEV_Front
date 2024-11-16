@@ -6,7 +6,6 @@ const API_URL = process.env.REACT_APP_URL;
 export const fetchSingleData = async (url, setData, errorMessage) => {
   try {
     const response = await axios.get(`${API_URL}/${url}`);
-    // console.log(response.data);
 
     setData(response.data);
   } catch (error) {
@@ -22,13 +21,6 @@ export const handleUploadSingleData = async (
   errorMessage,
   fieldName // 동적으로 사용할 필드명 (예: countryName, genreName 등)
 ) => {
-  // 필수 값 체크 (동적으로 받은 필드명을 사용하여 체크)
-
-  console.log(API_URL);
-  console.log(apiEndpoint);
-
-  console.log(data);
-
   if (!data[fieldName]) {
     alert("빈 칸없이 채워주세요");
     return;

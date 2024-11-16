@@ -15,7 +15,6 @@ const SingleForm = ({
 
   const handleUpload = async () => {
     const data = { [value]: inputValue }; // 동적으로 키를 설정
-    console.log(data);
 
     await handleUploadSingleData(
       data,

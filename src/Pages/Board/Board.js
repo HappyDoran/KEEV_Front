@@ -133,9 +133,9 @@ const Board = () => {
                   flexGrow={1}
                   style={{ display: "flex", alignItems: "flex-start" }}
                 >
-                  {item.posterURL && (
+                  {item.posterImageURL && (
                     <img
-                      src={item.posterURL.replace}
+                      src={item.posterImageURL}
                       alt={item.name}
                       style={{
                         width: "100px",

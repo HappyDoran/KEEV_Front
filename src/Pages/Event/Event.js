@@ -89,8 +89,7 @@ const Event = () => {
       eventTypeID: event.eventTypeID,
       startDate: event.startDate,
       endDate: event.endDate,
-      startTime:
-        event.startTime !== "" ? `${event.startTime}:00` : event.startTime,
+      startTime: event.startTime !== "" ? `${event.startTime}:00` : "00:00:00",
       reservationStartDate: event.reservationStartDate,
     };
 
@@ -99,6 +98,7 @@ const Event = () => {
 
     // Blob으로 변환하여 FormData에 추가
     const json = JSON.stringify(eventData);
+
     const blob = new Blob([json], { type: "application/json" });
     formData.append("eventData", blob);
 
