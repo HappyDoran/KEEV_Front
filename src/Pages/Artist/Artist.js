@@ -39,6 +39,7 @@ const Artist = () => {
   };
 
   const handleUpload = async () => {
+    // 필수 값 체크
     if (
       !artist.artistName ||
       !profileImage ||
@@ -49,19 +50,38 @@ const Artist = () => {
       return;
     }
 
+    // artistData 객체 생성
+    const artistData = {
+      artistName: artist.artistName,
+      description: artist.description,
+      countryIDs: artist.countryIDs,
+      genreIDs: artist.genreIDs,
+    };
+
+    // FormData 객체 생성
     const formData = new FormData();
-    formData.append("artistName", artist.artistName);
-    formData.append("description", artist.description);
-    formData.append("countryIDs", JSON.stringify(artist.countryIDs));
-    formData.append("genreIDs", JSON.stringify(artist.genreIDs));
+    // formData.append("artistData", JSON.stringify(artistData));
+    const json = JSON.stringify(artistData);
+    const blob = new Blob([json], { type: "application/json" });
+    formData.append("artistData", blob);
     formData.append("profileImage", profileImage);
 
+    // 디버깅을 위한 콘솔 로그
     for (const x of formData.entries()) {
       console.log(x);
     }
 
     try {
-      const response = await axios.post(`${API_URL}/artist/register`, formData);
+      // POST 요청 시 Content-Type을 설정
+      const response = await axios.post(
+        `${API_URL}/artist/register`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data", // Content-Type을 명시적으로 설정
+          },
+        }
+      );
       alert("아티스트 등록 성공: " + response.data.id);
       window.location.reload();
     } catch (error) {

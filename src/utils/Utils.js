@@ -24,6 +24,9 @@ export const handleUploadSingleData = async (
 ) => {
   // 필수 값 체크 (동적으로 받은 필드명을 사용하여 체크)
 
+  console.log(API_URL);
+  console.log(apiEndpoint);
+
   console.log(data);
 
   if (!data[fieldName]) {

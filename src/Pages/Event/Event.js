@@ -65,6 +65,7 @@ const Event = () => {
   };
 
   const handleUpload = async () => {
+    // 필수 값 체크
     if (
       !event.eventName ||
       !posterImage ||
@@ -78,30 +79,51 @@ const Event = () => {
       return;
     }
 
+    // 이벤트 데이터 객체 생성
+    const eventData = {
+      eventName: event.eventName,
+      description: event.description,
+      placeIDs: event.placeIDs,
+      genreIDs: event.genreIDs,
+      artistIDs: event.artistIDs,
+      eventTypeID: event.eventTypeID,
+      startDate: event.startDate,
+      endDate: event.endDate,
+      startTime:
+        event.startTime !== "" ? `${event.startTime}:00` : event.startTime,
+      reservationStartDate: event.reservationStartDate,
+    };
+
+    // FormData 객체 생성
     const formData = new FormData();
-    formData.append("eventName", event.eventName);
-    formData.append("description", event.description);
-    formData.append("placeIDs", JSON.stringify(event.placeIDs));
-    formData.append("genreIDs", JSON.stringify(event.genreIDs));
-    formData.append("artistIDs", JSON.stringify(event.artistIDs));
-    formData.append("eventTypeID", event.eventTypeID);
-    formData.append("startDate", event.startDate);
-    formData.append("endDate", event.endDate);
-    formData.append(
-      "startTime",
-      event.startTime !== "" ? `${event.startTime}:00` : event.startTime
-    );
-    formData.append("reservationStartDate", event.reservationStartDate);
+
+    // Blob으로 변환하여 FormData에 추가
+    const json = JSON.stringify(eventData);
+    const blob = new Blob([json], { type: "application/json" });
+    formData.append("eventData", blob);
+
+    // posterImage 추가
     formData.append("posterImage", posterImage);
 
+    // descriptionImages 추가
     descriptionImages.forEach((file) => {
       formData.append("descriptionImages", file);
     });
 
+    // 디버깅을 위한 콘솔 로그
+    for (const x of formData.entries()) {
+      console.log(x);
+    }
+
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_URL}/event/register`,
-        formData
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data", // Content-Type을 명시적으로 설정
+          },
+        }
       );
       alert("이벤트 등록 성공: " + response.data.id);
       window.location.reload();
