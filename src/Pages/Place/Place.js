@@ -2,7 +2,7 @@ import "../../Styles/Layout.css";
 import React, { useState, useEffect } from "react";
 import { TextField, Button } from "@mui/material";
 import axios from "axios";
-import { fetchSingleData } from "../../utils/Utils";
+import { fetchSingleData } from "../../utils/utils";
 import SingleSelectAutocomplete from "../../components/SingleSelectAutocomplete/SingleSelectAutocomplete";
 
 const Place = () => {
