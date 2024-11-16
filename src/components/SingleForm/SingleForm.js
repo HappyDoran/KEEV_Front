@@ -1,7 +1,7 @@
 import "../../Styles/Layout.css";
 import React, { useState } from "react";
 import { TextField, Button } from "@mui/material";
-import { handleUploadSingleData } from "../../utils/utils";
+import { handleUploadSingleData } from "../../utils/Utils";
 
 const SingleForm = ({
   title,
