@@ -38,6 +38,18 @@ const SingleForm = ({
             fullWidth
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)} // 상태 업데이트
+            sx={{
+              "& .MuiInputLabel-root": {
+                color: "white", // label 색상을 흰색으로 설정
+              },
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px", // borderRadius를 12로 설정
+                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
+                "& input": {
+                  color: "#eaeaea", // value 색상을 흰색으로 설정
+                },
+              },
+            }}
           />
         </div>
 
@@ -46,9 +58,9 @@ const SingleForm = ({
             onClick={handleUpload}
             variant="contained"
             sx={{
-              backgroundColor: "#34495e",
+              backgroundColor: "#7556ff",
               "&:hover": {
-                backgroundColor: "#2c3e50",
+                backgroundColor: "#292346",
               },
             }}
           >

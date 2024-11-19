@@ -182,6 +182,18 @@ const Event = () => {
             fullWidth
             value={event.eventName}
             onChange={(e) => setEvent({ ...event, eventName: e.target.value })}
+            sx={{
+              "& .MuiInputLabel-root": {
+                color: "white", // label 색상을 흰색으로 설정
+              },
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px", // borderRadius를 12로 설정
+                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
+                "& input": {
+                  color: "#eaeaea", // value 색상을 흰색으로 설정
+                },
+              },
+            }}
           />
         </div>
 
@@ -192,6 +204,7 @@ const Event = () => {
           setSelectedIds={(ids) => setEvent({ ...event, placeIDs: ids })}
           label="이벤트 장소 선택*"
           textLabel="장소 선택"
+          sx={{ backgroundColor: "#2A2830" }}
         />
 
         {/* 선택된 장소 목록 */}
@@ -282,6 +295,18 @@ const Event = () => {
             InputLabelProps={{ shrink: true }}
             value={event.startDate}
             onChange={(e) => setEvent({ ...event, startDate: e.target.value })}
+            sx={{
+              "& .MuiInputLabel-root": {
+                color: "white", // label 색상을 흰색으로 설정
+              },
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px", // borderRadius를 12로 설정
+                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
+                "& input": {
+                  color: "#eaeaea", // value 색상을 흰색으로 설정
+                },
+              },
+            }}
           />
         </div>
 
@@ -294,6 +319,18 @@ const Event = () => {
             InputLabelProps={{ shrink: true }}
             value={event.endDate}
             onChange={(e) => setEvent({ ...event, endDate: e.target.value })}
+            sx={{
+              "& .MuiInputLabel-root": {
+                color: "white", // label 색상을 흰색으로 설정
+              },
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px", // borderRadius를 12로 설정
+                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
+                "& input": {
+                  color: "#eaeaea", // value 색상을 흰색으로 설정
+                },
+              },
+            }}
           />
         </div>
 
@@ -307,6 +344,18 @@ const Event = () => {
             InputLabelProps={{ shrink: true }}
             value={event.startTime}
             onChange={(e) => setEvent({ ...event, startTime: e.target.value })}
+            sx={{
+              "& .MuiInputLabel-root": {
+                color: "white", // label 색상을 흰색으로 설정
+              },
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px", // borderRadius를 12로 설정
+                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
+                "& input": {
+                  color: "#eaeaea", // value 색상을 흰색으로 설정
+                },
+              },
+            }}
           />
         </div>
 
@@ -316,7 +365,14 @@ const Event = () => {
           <TextareaAutosize
             aria-label="content"
             minRows={5}
-            style={{ width: "100%", height: "50px", resize: "none" }}
+            style={{
+              width: "100%",
+              resize: "none",
+              borderRadius: "12px", // borderRadius를 12로 설정
+              backgroundColor: "#2A2830", // 배경색을 설정
+              color: "#eaeaea", // value 색상을 설정
+              border: "none", // 테두리 제거 (원하는 경우)
+            }}
             placeholder="상세 설명을 입력해주세요."
             value={event.description || ""}
             onChange={(e) =>
@@ -423,6 +479,18 @@ const Event = () => {
             onChange={(e) =>
               setEvent({ ...event, reservationStartDate: e.target.value })
             }
+            sx={{
+              "& .MuiInputLabel-root": {
+                color: "white", // label 색상을 흰색으로 설정
+              },
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px", // borderRadius를 12로 설정
+                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
+                "& input": {
+                  color: "#eaeaea", // value 색상을 흰색으로 설정
+                },
+              },
+            }}
           />
         </div>
 
@@ -432,9 +500,9 @@ const Event = () => {
             onClick={handleUpload}
             variant="contained"
             sx={{
-              backgroundColor: "#34495e",
+              backgroundColor: "#7556ff",
               "&:hover": {
-                backgroundColor: "#2c3e50",
+                backgroundColor: "#292346",
               },
             }}
           >

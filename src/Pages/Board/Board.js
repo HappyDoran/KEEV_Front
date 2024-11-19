@@ -103,7 +103,23 @@ const Board = () => {
           options={events.map((option) => option.name)} // 이벤트 이름을 옵션으로 설정
           onInputChange={handleSearchChange} // 검색어 변경 시 호출
           renderInput={(params) => (
-            <TextField {...params} label="이벤트 검색" variant="outlined" />
+            <TextField
+              {...params}
+              label="이벤트 검색"
+              variant="outlined"
+              sx={{
+                "& .MuiInputLabel-root": {
+                  color: "white", // label 색상을 흰색으로 설정
+                },
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: "12px", // borderRadius를 12로 설정
+                  backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
+                  "& input": {
+                    color: "#eaeaea", // value 색상을 흰색으로 설정
+                  },
+                },
+              }}
+            />
           )}
           // filterOptions={(options, { inputValue }) => {
           //   const filtered = options.filter((option) =>
@@ -116,7 +132,14 @@ const Board = () => {
 
         <List>
           {filteredEvents.length === 0 ? (
-            <Typography variant="body2">등록된 이벤트가 없습니다.</Typography>
+            <Typography
+              variant="body2"
+              style={{
+                color: "#7556ff",
+              }}
+            >
+              등록된 이벤트가 없습니다.
+            </Typography>
           ) : (
             filteredEvents.map((item) => (
               <ListItem
@@ -145,23 +168,33 @@ const Board = () => {
                     />
                   )}
                   <Box>
-                    <Typography variant="body2">
-                      이벤트 번호: {item.id}
+                    <Typography style={{ color: "#EAEAEA" }}>
+                      제목: {item.name}
                     </Typography>
-                    <Typography>제목: {item.name}</Typography>
+                    <Typography style={{ color: "#EAEAEA" }} variant="body2">
+                      시작일 - 종료일: {item.startDate} - {item.endDate}
+                    </Typography>
                   </Box>
                 </Box>
                 <ButtonGroup>
                   <Button
                     variant="outlined"
-                    color="primary"
+                    style={{
+                      color: "#eaeaea",
+                      backgroundColor: "#E6234C",
+                      border: "none",
+                    }}
                     onClick={() => handleEdit(item)}
                   >
                     수정
                   </Button>
                   <Button
                     variant="outlined"
-                    color="secondary"
+                    style={{
+                      color: "#eaeaea",
+                      backgroundColor: "#818181",
+                      border: "none",
+                    }}
                     onClick={() => handleDelete(item.id)}
                   >
                     삭제
@@ -174,9 +207,24 @@ const Board = () => {
       </div>
 
       {/* 수정 대화상자 */}
-      <Dialog open={openEditDialog} onClose={() => setOpenEditDialog(false)}>
-        <DialogTitle>이벤트 수정</DialogTitle>
-        <DialogContent>
+      <Dialog
+        open={openEditDialog}
+        onClose={() => setOpenEditDialog(false)}
+        style={{}}
+      >
+        <DialogTitle
+          sx={{
+            backgroundColor: "#100f11", // 배경색을 #100f11로 설정
+            color: "#7556ff",
+          }}
+        >
+          이벤트 수정
+        </DialogTitle>
+        <DialogContent
+          sx={{
+            backgroundColor: "#100f11", // 배경색을 #100f11로 설정
+          }}
+        >
           <TextField
             autoFocus
             margin="dense"
@@ -191,6 +239,18 @@ const Board = () => {
                 name: e.target.value,
               }))
             }
+            sx={{
+              "& .MuiInputLabel-root": {
+                color: "white", // label 색상을 흰색으로 설정
+              },
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px", // borderRadius를 12로 설정
+                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
+                "& input": {
+                  color: "#eaeaea", // value 색상을 흰색으로 설정
+                },
+              },
+            }}
           />
           <TextField
             margin="dense"
@@ -205,6 +265,18 @@ const Board = () => {
                 description: e.target.value,
               }))
             }
+            sx={{
+              "& .MuiInputLabel-root": {
+                color: "white", // label 색상을 흰색으로 설정
+              },
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px", // borderRadius를 12로 설정
+                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
+                "& input": {
+                  color: "#eaeaea", // value 색상을 흰색으로 설정
+                },
+              },
+            }}
           />
           <TextField
             margin="dense"
@@ -221,6 +293,18 @@ const Board = () => {
             }
             InputLabelProps={{
               shrink: true,
+            }}
+            sx={{
+              "& .MuiInputLabel-root": {
+                color: "white", // label 색상을 흰색으로 설정
+              },
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px", // borderRadius를 12로 설정
+                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
+                "& input": {
+                  color: "#eaeaea", // value 색상을 흰색으로 설정
+                },
+              },
             }}
           />
           <TextField
@@ -239,6 +323,18 @@ const Board = () => {
             InputLabelProps={{
               shrink: true,
             }}
+            sx={{
+              "& .MuiInputLabel-root": {
+                color: "white", // label 색상을 흰색으로 설정
+              },
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px", // borderRadius를 12로 설정
+                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
+                "& input": {
+                  color: "#eaeaea", // value 색상을 흰색으로 설정
+                },
+              },
+            }}
           />
           <TextField
             margin="dense"
@@ -253,13 +349,47 @@ const Board = () => {
                 posterURL: e.target.value,
               }))
             }
+            sx={{
+              "& .MuiInputLabel-root": {
+                color: "white", // label 색상을 흰색으로 설정
+              },
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px", // borderRadius를 12로 설정
+                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
+                "& input": {
+                  color: "#eaeaea", // value 색상을 흰색으로 설정
+                },
+              },
+            }}
           />
         </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpenEditDialog(false)} color="primary">
+        <DialogActions
+          sx={{
+            backgroundColor: "#100f11", // 배경색을 #100f11로 설정
+          }}
+        >
+          <Button
+            onClick={() => setOpenEditDialog(false)}
+            sx={{
+              color: "#eaeaea",
+              backgroundColor: "#818181",
+              "&:hover": {
+                backgroundColor: "#2A2830",
+              },
+            }}
+          >
             취소
           </Button>
-          <Button onClick={handleEditSubmit} color="primary">
+          <Button
+            onClick={handleEditSubmit}
+            sx={{
+              color: "#eaeaea",
+              backgroundColor: "#7556ff",
+              "&:hover": {
+                backgroundColor: "#292346",
+              },
+            }}
+          >
             수정 완료
           </Button>
         </DialogActions>

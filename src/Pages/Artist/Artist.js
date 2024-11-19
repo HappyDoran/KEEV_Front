@@ -117,6 +117,18 @@ const Artist = () => {
             onChange={(e) =>
               setArtist({ ...artist, artistName: e.target.value })
             }
+            sx={{
+              "& .MuiInputLabel-root": {
+                color: "white", // label 색상을 흰색으로 설정
+              },
+              "& .MuiOutlinedInput-root": {
+                borderRadius: "12px", // borderRadius를 12로 설정
+                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
+                "& input": {
+                  color: "#eaeaea", // value 색상을 흰색으로 설정
+                },
+              },
+            }}
           />
         </div>
 
@@ -153,7 +165,14 @@ const Artist = () => {
           <TextareaAutosize
             aria-label="content"
             minRows={5}
-            style={{ width: "100%", height: "50px", resize: "none" }}
+            style={{
+              width: "100%",
+              resize: "none",
+              borderRadius: "12px", // borderRadius를 12로 설정
+              backgroundColor: "#2A2830", // 배경색을 설정
+              color: "#eaeaea", // value 색상을 설정
+              border: "none", // 테두리 제거 (원하는 경우)
+            }}
             placeholder="내용을 입력해주세요."
             value={artist.description || ""}
             onChange={(e) =>
@@ -236,9 +255,9 @@ const Artist = () => {
             onClick={handleUpload}
             variant="contained"
             sx={{
-              backgroundColor: "#34495e",
+              backgroundColor: "#7556ff",
               "&:hover": {
-                backgroundColor: "#2c3e50",
+                backgroundColor: "#292346",
               },
             }}
           >

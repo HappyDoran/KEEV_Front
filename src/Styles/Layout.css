@@ -2,11 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ecf0f1;
+  background-color: #100f11;
 }
 
 .wrapper {
-  background-color: #ecf0f1;
+  background-color: #100f11;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
@@ -18,18 +18,22 @@
   text-align: center;
   margin-bottom: 20px;
   font-size: 24px;
-  color: #34495e;
+  color: #7556ff;
 }
 
 .inputField {
   margin-bottom: 15px;
 }
 
+.TextField {
+  background-color: black;
+}
+
 .label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  color: #34495e;
+  color: #7556ff;
 }
 
 .textarea {
@@ -38,7 +42,7 @@
   border-radius: 4px;
   padding: 10px;
   resize: none;
-  background-color: whitesmoke;
+  background-color: #2a2830;
   color: black;
   min-height: 100px;
 }
