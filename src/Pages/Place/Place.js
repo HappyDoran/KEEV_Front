@@ -130,6 +130,8 @@ const Place = () => {
           />
         </div>
 
+        <KakaoMap />
+
         <SingleSelectAutocomplete
           options={countries}
           selectedID={place.countryID}
