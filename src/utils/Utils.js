@@ -32,7 +32,6 @@ export const handleUploadSingleData = async (
   try {
     const response = await axios.post(
       `${API_URL}/${apiEndpoint}`,
-      `/${apiEndpoint}`,
       requestData,
       {
         headers: {
