@@ -5,7 +5,7 @@ const API_URL = process.env.REACT_APP_URL;
 // 공통 fetchData 함수 정의
 export const fetchSingleData = async (url, setData, errorMessage) => {
   try {
-    const response = await axios.get(`${API_URL}/${url}`);
+    const response = await axios.get(`/${url}`);
 
     setData(response.data);
   } catch (error) {
@@ -31,7 +31,8 @@ export const handleUploadSingleData = async (
 
   try {
     const response = await axios.post(
-      `${API_URL}/${apiEndpoint}`,
+      // `${API_URL}/${apiEndpoint}`,
+      `/${apiEndpoint}`,
       requestData,
       {
         headers: {
@@ -43,8 +44,16 @@ export const handleUploadSingleData = async (
     alert(`${successMessage}: ${response.data.id}`);
     window.location.reload();
   } catch (error) {
-    console.error(`${errorMessage}:`, error);
-    alert(`${errorMessage}`);
+    let errorMessageToShow = errorMessage;
+
+    if (error.response && error.response.data) {
+      errorMessageToShow = error.response.data.message || errorMessage;
+    } else if (error.message) {
+      errorMessageToShow = error.message;
+    }
+
+    console.error(`${errorMessageToShow}:`, error);
+    alert(`${errorMessageToShow}`);
   }
 };
 

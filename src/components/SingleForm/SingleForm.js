@@ -6,6 +6,7 @@ import { handleUploadSingleData } from "../../utils/Utils";
 const SingleForm = ({
   title,
   label,
+  textLabel,
   value,
   apiEndpoint,
   successMessage,
@@ -29,11 +30,10 @@ const SingleForm = ({
     <div className="container">
       <div className="wrapper">
         <h2 className="title">{title}</h2>
-
         <div className="inputField">
           <label className="label">{label}</label>
           <TextField
-            label={label}
+            label={textLabel}
             variant="outlined"
             fullWidth
             value={inputValue}

@@ -175,7 +175,7 @@ const Event = () => {
 
         {/* 이벤트 이름 */}
         <div className="inputField">
-          <label className="label">이벤트 이름</label>
+          <label className="label">이벤트 이름*</label>
           <TextField
             label="이벤트 이름"
             variant="outlined"
@@ -190,7 +190,7 @@ const Event = () => {
           options={places}
           selectedIds={event.placeIDs}
           setSelectedIds={(ids) => setEvent({ ...event, placeIDs: ids })}
-          label="이벤트 장소 선택"
+          label="이벤트 장소 선택*"
           textLabel="장소 선택"
         />
 
@@ -216,7 +216,7 @@ const Event = () => {
           options={genres}
           selectedIds={event.genreIDs}
           setSelectedIds={(ids) => setEvent({ ...event, genreIDs: ids })}
-          label="이벤트 장르 선택"
+          label="이벤트 장르 선택*"
           textLabel="장르 선택"
         />
 
@@ -242,7 +242,7 @@ const Event = () => {
           options={artists}
           selectedIds={event.artistIDs}
           setSelectedIds={(ids) => setEvent({ ...event, artistIDs: ids })}
-          label="아티스트 선택 선택"
+          label="아티스트 선택*"
           textLabel="아티스트 선택"
         />
 
@@ -268,12 +268,13 @@ const Event = () => {
           options={eventTypes}
           selectedID={event.eventTypeID}
           setSelectedID={(id) => setEvent({ ...event, eventTypeID: id })}
-          label="공연 종류 선택"
+          label="공연 종류 선택*"
           textLabel="공연 종류 선택"
         />
 
         {/* 날짜 및 시간 입력 */}
         <div className="inputField">
+          <label className="label">이벤트 시작 날짜*</label>
           <TextField
             label="시작 날짜"
             type="date"
@@ -285,6 +286,7 @@ const Event = () => {
         </div>
 
         <div className="inputField">
+          <label className="label">이벤트 종료 날짜*</label>
           <TextField
             label="종료 날짜"
             type="date"
@@ -297,6 +299,7 @@ const Event = () => {
 
         {/* 시간 입력 */}
         <div className="inputField">
+          <label className="label">이벤트 시작 시간</label>
           <TextField
             label="시작 시간"
             type="time"
@@ -324,7 +327,7 @@ const Event = () => {
 
         {/* 포스터 이미지 업로드 */}
         <div className="inputField">
-          <label className="label">포스터 이미지 업로드</label>
+          <label className="label">포스터 이미지 업로드*</label>
           <input
             type="file"
             accept=".png,.jpeg"
@@ -410,6 +413,7 @@ const Event = () => {
 
         {/* 예약 시작일 입력 */}
         <div className="inputField">
+          <label className="label">이벤트 예매 시작일</label>
           <TextField
             label="예약 시작일"
             type="datetime-local"

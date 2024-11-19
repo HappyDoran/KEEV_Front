@@ -5,7 +5,8 @@ const Genre = () => {
   return (
     <SingleForm
       title="장르 등록"
-      label="장르 이름"
+      label="장르 이름*"
+      textLabel="장르 이름"
       value="genreName"
       apiEndpoint="genre/register"
       successMessage="장르 등록 성공"

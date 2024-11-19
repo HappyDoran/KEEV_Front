@@ -5,7 +5,8 @@ const Country = () => {
   return (
     <SingleForm
       title="나라 등록"
-      label="나라 이름"
+      label="나라 이름*"
+      textLabel="나라 이름"
       value="countryName"
       apiEndpoint="country/register"
       successMessage="나라 등록 성공"

@@ -108,7 +108,7 @@ const Artist = () => {
       <div className="wrapper">
         <h2 className="title">아티스트 등록</h2>
         <div className="inputField">
-          <label className="label">아티스트 이름</label>
+          <label className="label">아티스트 이름*</label>
           <TextField
             label="아티스트 이름"
             variant="outlined"
@@ -125,7 +125,7 @@ const Artist = () => {
           options={countries}
           selectedIds={artist.countryIDs}
           setSelectedIds={(ids) => setArtist({ ...artist, countryIDs: ids })}
-          label="아티스트 국적 선택"
+          label="아티스트 국적 선택*"
           textLabel="나라 선택"
         />
 
@@ -167,7 +167,7 @@ const Artist = () => {
           options={genres}
           selectedIds={artist.genreIDs}
           setSelectedIds={(ids) => setArtist({ ...artist, genreIDs: ids })}
-          label="아티스트 장르 선택"
+          label="아티스트 장르 선택*"
           textLabel="장르 선택"
         />
 
@@ -193,7 +193,7 @@ const Artist = () => {
 
         {/* 프로필 이미지 업로드 */}
         <div className="inputField">
-          <label className="label">프로필 이미지 업로드</label>
+          <label className="label">프로필 이미지 업로드*</label>
           <input
             type="file"
             accept=".png,.jpeg"

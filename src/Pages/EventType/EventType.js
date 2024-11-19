@@ -5,7 +5,8 @@ const EventType = () => {
   return (
     <SingleForm
       title="공연 종류 등록"
-      label="공연 종류 제목"
+      label="공연 종류 제목*"
+      textLabel="공연 종류 제목"
       value="eventTypeName"
       apiEndpoint="eventType/register"
       successMessage="이벤트 타입 등록 성공"

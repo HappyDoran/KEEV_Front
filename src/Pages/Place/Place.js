@@ -4,6 +4,7 @@ import { TextField, Button } from "@mui/material";
 import axios from "axios";
 import { fetchSingleData } from "../../utils/Utils";
 import SingleSelectAutocomplete from "../../components/SingleSelectAutocomplete/SingleSelectAutocomplete";
+import KakaoMap from "../../components/KakaoMap/KakaoMap";
 
 const Place = () => {
   const [place, setPlace] = useState({
@@ -84,7 +85,7 @@ const Place = () => {
       <div className="wrapper">
         <h2 className="title">공연장소 등록</h2>
         <div className="inputField">
-          <label className="label">장소 이름</label>
+          <label className="label">장소 이름*</label>
           <TextField
             label="장소 이름"
             variant="outlined"
@@ -95,7 +96,7 @@ const Place = () => {
         </div>
 
         <div className="inputField">
-          <label className="label">장소 주소</label>
+          <label className="label">장소 주소*</label>
           <TextField
             label="장소 주소"
             variant="outlined"
@@ -106,7 +107,7 @@ const Place = () => {
         </div>
 
         <div className="inputField">
-          <label className="label">위도</label>
+          <label className="label">위도*</label>
           <TextField
             label="위도"
             variant="outlined"
@@ -118,7 +119,7 @@ const Place = () => {
         </div>
 
         <div className="inputField">
-          <label className="label">경도</label>
+          <label className="label">경도*</label>
           <TextField
             label="경도"
             variant="outlined"
@@ -133,7 +134,7 @@ const Place = () => {
           options={countries}
           selectedID={place.countryID}
           setSelectedID={(id) => setPlace({ ...place, countryID: id })}
-          label="공연장 나라 선택"
+          label="공연장 나라 선택*"
           textLabel="나라 선택"
         />
 
