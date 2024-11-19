@@ -128,9 +128,9 @@ const KakaoMap = () => {
         style={{ width: "100%", height: "400px", marginTop: "20px" }}
       />
       <div style={{ marginTop: "20px", marginBottom: "20px" }}>
-        <h3>위치 정보</h3>
-        <p>위도: {locationInfo.latitude}</p>
-        <p>경도: {locationInfo.longitude}</p>
+        <h3 style={{ color: "#7556ff" }}>위치 정보</h3>
+        <p style={{ color: "#eaeaea" }}>위도: {locationInfo.latitude}</p>
+        <p style={{ color: "#eaeaea" }}>경도: {locationInfo.longitude}</p>
       </div>
     </div>
   );
