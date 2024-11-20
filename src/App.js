@@ -9,6 +9,7 @@ import Country from "./Pages/Country/Country";
 import Genre from "./Pages/Genre/Genre";
 import Place from "./Pages/Place/Place";
 import Artist from "./Pages/Artist/Artist";
+import Main from "./Pages/Main/Main";
 
 const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true); // Sidebar 상태 관리
@@ -31,6 +32,7 @@ const App = () => {
             }}
           >
             <Routes>
+              <Route path="/" element={<Main />} />
               <Route path="/eventType/create" element={<EventType />} />
               <Route path="/country/create" element={<Country />} />
               <Route path="/genre/create" element={<Genre />} />

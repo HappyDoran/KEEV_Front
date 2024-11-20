@@ -14,6 +14,19 @@
   max-width: 90%;
 }
 
+.main-container {
+  display: flex;
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  height: 100vh; /* 화면 전체 높이 */
+}
+
+.main-image {
+  max-width: 100%; /* 화면 크기에 맞게 이미지 크기 조정 */
+  max-height: 100%; /* 화면 크기에 맞게 이미지 크기 조정 */
+  filter: blur(13px); /* 흐림 효과 추가 (픽셀 수 조정 가능) */
+}
+
 .title {
   text-align: center;
   margin-bottom: 20px;
