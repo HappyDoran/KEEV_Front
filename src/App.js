@@ -11,7 +11,7 @@ import Place from "./Pages/Place/Place";
 import Artist from "./Pages/Artist/Artist";
 
 const App = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false); // Sidebar 상태 관리
+  const [sidebarOpen, setSidebarOpen] = useState(true); // Sidebar 상태 관리
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen); // Sidebar 열기/닫기 토글

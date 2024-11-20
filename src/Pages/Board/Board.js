@@ -15,7 +15,10 @@ import {
   TextField,
   Autocomplete,
 } from "@mui/material";
+import Event from "../Event/Event";
+import MultiSelectAutocomplete from "../../components/MultiSelectAutocomplete/MultiSelectAutocomplete";
 import { fetchSingleData } from "../../utils/Utils";
+import Edit from "./Edit";
 
 const Board = () => {
   const [events, setEvents] = useState([]);
@@ -66,30 +69,10 @@ const Board = () => {
 
   // 이벤트 수정 대화상자 열기
   const handleEdit = (eventData) => {
+    console.log(eventData);
+
     setSelectedEvent(eventData);
     setOpenEditDialog(true);
-  };
-
-  // 수정 완료
-  const handleEditSubmit = async () => {
-    try {
-      const updatedEvent = { ...selectedEvent };
-
-      await axios.put(`${API_URL}/event/${selectedEvent.id}`, updatedEvent);
-      alert("이벤트 수정 성공");
-      setOpenEditDialog(false);
-      fetchSingleData(
-        "event/get",
-        (data) => {
-          setEvents(data.events);
-          setFilteredEvents(data.events); // 수정 후 목록 새로 고침
-        },
-        "이벤트 목록 가져오기 실패"
-      );
-    } catch (error) {
-      console.error(error);
-      alert("이벤트 수정 실패");
-    }
   };
 
   return (
@@ -121,13 +104,6 @@ const Board = () => {
               }}
             />
           )}
-          // filterOptions={(options, { inputValue }) => {
-          //   const filtered = options.filter((option) =>
-          //     option.name.toLowerCase().includes(inputValue.toLowerCase())
-          //   );
-
-          //   return filtered.slice(0, 5); // 최대 5개 항목만 표시
-          // }}
         />
 
         <List>
@@ -174,6 +150,24 @@ const Board = () => {
                     <Typography style={{ color: "#EAEAEA" }} variant="body2">
                       시작일 - 종료일: {item.startDate} - {item.endDate}
                     </Typography>
+
+                    <Typography style={{ color: "#EAEAEA" }} variant="body2">
+                      공연장:{" "}
+                      {item.places && item.places.length > 0
+                        ? item.places
+                            .map((place, index) => place.name)
+                            .join(", ")
+                        : "등록된 공연장이 없습니다."}
+                    </Typography>
+
+                    <Typography style={{ color: "#EAEAEA" }} variant="body2">
+                      아티스트:{" "}
+                      {item.artists && item.artists.length > 0
+                        ? item.artists
+                            .map((artist, index) => artist.name)
+                            .join(", ")
+                        : "등록된 공연장이 없습니다."}
+                    </Typography>
                   </Box>
                 </Box>
                 <ButtonGroup>
@@ -207,193 +201,16 @@ const Board = () => {
       </div>
 
       {/* 수정 대화상자 */}
-      <Dialog
-        open={openEditDialog}
-        onClose={() => setOpenEditDialog(false)}
-        style={{}}
-      >
-        <DialogTitle
-          sx={{
-            backgroundColor: "#100f11", // 배경색을 #100f11로 설정
-            color: "#7556ff",
-          }}
-        >
-          이벤트 수정
-        </DialogTitle>
-        <DialogContent
-          sx={{
-            backgroundColor: "#100f11", // 배경색을 #100f11로 설정
-          }}
-        >
-          <TextField
-            autoFocus
-            margin="dense"
-            label="제목"
-            type="text"
-            fullWidth
-            variant="outlined"
-            value={selectedEvent?.name || ""}
-            onChange={(e) =>
-              setSelectedEvent((prev) => ({
-                ...prev,
-                name: e.target.value,
-              }))
-            }
-            sx={{
-              "& .MuiInputLabel-root": {
-                color: "white", // label 색상을 흰색으로 설정
-              },
-              "& .MuiOutlinedInput-root": {
-                borderRadius: "12px", // borderRadius를 12로 설정
-                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
-                "& input": {
-                  color: "#eaeaea", // value 색상을 흰색으로 설정
-                },
-              },
-            }}
-          />
-          <TextField
-            margin="dense"
-            label="설명"
-            type="text"
-            fullWidth
-            variant="outlined"
-            value={selectedEvent?.description || ""}
-            onChange={(e) =>
-              setSelectedEvent((prev) => ({
-                ...prev,
-                description: e.target.value,
-              }))
-            }
-            sx={{
-              "& .MuiInputLabel-root": {
-                color: "white", // label 색상을 흰색으로 설정
-              },
-              "& .MuiOutlinedInput-root": {
-                borderRadius: "12px", // borderRadius를 12로 설정
-                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
-                "& input": {
-                  color: "#eaeaea", // value 색상을 흰색으로 설정
-                },
-              },
-            }}
-          />
-          <TextField
-            margin="dense"
-            label="시작일"
-            type="date"
-            fullWidth
-            variant="outlined"
-            value={selectedEvent?.startDate || ""}
-            onChange={(e) =>
-              setSelectedEvent((prev) => ({
-                ...prev,
-                startDate: e.target.value,
-              }))
-            }
-            InputLabelProps={{
-              shrink: true,
-            }}
-            sx={{
-              "& .MuiInputLabel-root": {
-                color: "white", // label 색상을 흰색으로 설정
-              },
-              "& .MuiOutlinedInput-root": {
-                borderRadius: "12px", // borderRadius를 12로 설정
-                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
-                "& input": {
-                  color: "#eaeaea", // value 색상을 흰색으로 설정
-                },
-              },
-            }}
-          />
-          <TextField
-            margin="dense"
-            label="종료일"
-            type="date"
-            fullWidth
-            variant="outlined"
-            value={selectedEvent?.endDate || ""}
-            onChange={(e) =>
-              setSelectedEvent((prev) => ({
-                ...prev,
-                endDate: e.target.value,
-              }))
-            }
-            InputLabelProps={{
-              shrink: true,
-            }}
-            sx={{
-              "& .MuiInputLabel-root": {
-                color: "white", // label 색상을 흰색으로 설정
-              },
-              "& .MuiOutlinedInput-root": {
-                borderRadius: "12px", // borderRadius를 12로 설정
-                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
-                "& input": {
-                  color: "#eaeaea", // value 색상을 흰색으로 설정
-                },
-              },
-            }}
-          />
-          <TextField
-            margin="dense"
-            label="포스터 이미지 URL"
-            type="text"
-            fullWidth
-            variant="outlined"
-            value={selectedEvent?.posterURL || ""}
-            onChange={(e) =>
-              setSelectedEvent((prev) => ({
-                ...prev,
-                posterURL: e.target.value,
-              }))
-            }
-            sx={{
-              "& .MuiInputLabel-root": {
-                color: "white", // label 색상을 흰색으로 설정
-              },
-              "& .MuiOutlinedInput-root": {
-                borderRadius: "12px", // borderRadius를 12로 설정
-                backgroundColor: "#2A2830", // 배경색을 흰색으로 설정
-                "& input": {
-                  color: "#eaeaea", // value 색상을 흰색으로 설정
-                },
-              },
-            }}
-          />
-        </DialogContent>
-        <DialogActions
-          sx={{
-            backgroundColor: "#100f11", // 배경색을 #100f11로 설정
-          }}
-        >
-          <Button
-            onClick={() => setOpenEditDialog(false)}
-            sx={{
-              color: "#eaeaea",
-              backgroundColor: "#818181",
-              "&:hover": {
-                backgroundColor: "#2A2830",
-              },
-            }}
-          >
-            취소
-          </Button>
-          <Button
-            onClick={handleEditSubmit}
-            sx={{
-              color: "#eaeaea",
-              backgroundColor: "#7556ff",
-              "&:hover": {
-                backgroundColor: "#292346",
-              },
-            }}
-          >
-            수정 완료
-          </Button>
-        </DialogActions>
-      </Dialog>
+      {openEditDialog && (
+        <Edit
+          openEditDialog={openEditDialog}
+          setOpenEditDialog={setOpenEditDialog}
+          selectedEvent={selectedEvent}
+          setSelectedEvent={setSelectedEvent}
+          setEvents={setEvents}
+          setFilteredEvents={setFilteredEvents}
+        />
+      )}
     </div>
   );
 };

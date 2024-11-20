@@ -13,6 +13,21 @@ export const fetchSingleData = async (url, setData, errorMessage) => {
   }
 };
 
+export const fetchSingleDataById = async (
+  url,
+  setData,
+  parameter,
+  errorMessage
+) => {
+  try {
+    const response = await axios.get(`${API_URL}/${url}`, parameter);
+
+    setData(response.data);
+  } catch (error) {
+    console.error(`${errorMessage}:`, error);
+  }
+};
+
 // 공통 업로드 함수
 export const handleUploadSingleData = async (
   data,
@@ -68,5 +83,15 @@ export const handleRemoveItem = (type, setData, data, id) => {
   setData({
     ...data,
     [type]: data[type].filter((itemId) => itemId !== id),
+  });
+};
+
+export const handleEditItem = (type, setData, data, id) => {
+  // 데이터가 존재하고, type이 data의 키로 존재하는지 확인
+  const currentItems = data[type] || []; // 기본값을 빈 배열로 설정
+
+  setData({
+    ...data,
+    [type]: currentItems.filter((item) => item.id !== id), // item.id를 사용
   });
 };

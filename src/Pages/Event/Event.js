@@ -3,7 +3,11 @@ import "../../Styles/Component.css";
 import React, { useState, useEffect } from "react";
 import { TextField, Button, TextareaAutosize } from "@mui/material";
 import axios from "axios";
-import { handleAddItem, handleRemoveItem } from "../../utils/Utils";
+import {
+  fetchSingleData,
+  handleAddItem,
+  handleRemoveItem,
+} from "../../utils/Utils";
 import MultiSelectAutocomplete from "../../components/MultiSelectAutocomplete/MultiSelectAutocomplete";
 import SingleSelectAutocomplete from "../../components/SingleSelectAutocomplete/SingleSelectAutocomplete";
 
@@ -130,15 +134,6 @@ const Event = () => {
     } catch (error) {
       console.error("이벤트 등록 실패:", error);
       alert("이벤트 등록 실패");
-    }
-  };
-
-  const fetchSingleData = async (url, setData, errorMessage) => {
-    try {
-      const response = await axios.get(`${process.env.REACT_APP_URL}/${url}`);
-      setData(response.data);
-    } catch (error) {
-      console.error(`${errorMessage}:`, error);
     }
   };
 
@@ -386,7 +381,7 @@ const Event = () => {
           <label className="label">포스터 이미지 업로드*</label>
           <input
             type="file"
-            accept=".png,.jpeg"
+            accept=".png,.jpeg,.gif"
             onChange={(e) => handleImage("poster", e)}
           />
         </div>
@@ -426,7 +421,7 @@ const Event = () => {
           <label className="label">상세 이미지 업로드</label>
           <input
             type="file"
-            accept=".png,.jpeg"
+            accept=".png,.jpeg,.gif"
             onChange={(e) => handleImage("description", e)}
           />
         </div>
