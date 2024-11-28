@@ -34,8 +34,13 @@ const Edit = ({
   const [previewPosterImage, setPreviewPosterImage] = useState(null);
   const [previewDescriptionImages, setPreviewDescriptionImages] = useState([]);
 
+  const S3_URL = process.env.REACT_APP_S3_URL;
+  const CLOUDFRONT_URL = process.env.REACT_APP_CLOUDFRONT_URL;
+
   const urlToFile = async (url, filename) => {
-    const response = await fetch(url);
+    const newUrl = url.replace(S3_URL, CLOUDFRONT_URL);
+
+    const response = await fetch(newUrl);
     const blob = await response.blob(); // Blob 객체로 변환
     return new File([blob], filename, { type: blob.type }); // File 객체 생성
   };
@@ -152,12 +157,10 @@ const Edit = ({
         endDate: selectedEvent.endDate,
         startTime:
           selectedEvent.startTime !== ""
-            ? `${selectedEvent.startTime}:00`
+            ? `${selectedEvent.startTime}`
             : "00:00:00",
         reservationStartDate: selectedEvent.reservationStartDate,
       };
-
-      //   console.log(eventData);
 
       // FormData 객체 생성
       const formData = new FormData();
@@ -175,11 +178,6 @@ const Edit = ({
       descriptionImages.forEach((file) => {
         formData.append("descriptionImages", file);
       });
-
-      // 디버깅을 위한 콘솔 로그
-      for (const x of formData.entries()) {
-        console.log(x);
-      }
 
       await axios.patch(
         `${API_URL}/event/update/${selectedEvent.id}`,
@@ -204,7 +202,6 @@ const Edit = ({
         "이벤트 목록 가져오기 실패"
       );
     } catch (error) {
-      console.error(error);
       alert("이벤트 수정 실패");
     }
   };

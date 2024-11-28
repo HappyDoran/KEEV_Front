@@ -125,7 +125,7 @@ const Event = () => {
         formData,
         {
           headers: {
-            "Content-Type": "multipart/form-data", // Content-Type을 명시적으로 설정
+            "Content-Type": "multipart/form-data",
           },
         }
       );
