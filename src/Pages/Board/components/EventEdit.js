@@ -1,5 +1,5 @@
-import "../../Styles/Layout.css";
-import "../../Styles/Component.css";
+import "../../../Styles/Layout.css";
+import "../../../Styles/Component.css";
 import React, { useState, useEffect } from "react";
 import {
   Dialog,
@@ -10,12 +10,12 @@ import {
   Button,
   TextareaAutosize,
 } from "@mui/material";
-import MultiSelectAutocomplete from "../../components/MultiSelectAutocomplete/MultiSelectAutocomplete";
-import SingleSelectAutocomplete from "../../components/SingleSelectAutocomplete/SingleSelectAutocomplete";
+import MultiSelectAutocomplete from "../../../components/MultiSelectAutocomplete/MultiSelectAutocomplete";
+import SingleSelectAutocomplete from "../../../components/SingleSelectAutocomplete/SingleSelectAutocomplete";
 import axios from "axios";
-import { fetchSingleData, handleEditItem } from "../../utils/Utils";
+import { fetchSingleData, handleEditItem } from "../../../utils/Utils";
 
-const Edit = ({
+const EventEdit = ({
   openEditDialog,
   setOpenEditDialog,
   selectedEvent,
@@ -609,4 +609,4 @@ const Edit = ({
   );
 };
 
-export default Edit;
+export default EventEdit;

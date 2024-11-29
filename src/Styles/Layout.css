@@ -21,10 +21,22 @@
   height: 100vh; /* 화면 전체 높이 */
 }
 
+.main-wrapper {
+  position: absolute;
+  background-color: #100f11;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 30%;
+  max-width: 90%;
+  z-index: 2;
+}
+
 .main-image {
   max-width: 100%; /* 화면 크기에 맞게 이미지 크기 조정 */
   max-height: 100%; /* 화면 크기에 맞게 이미지 크기 조정 */
   filter: blur(13px); /* 흐림 효과 추가 (픽셀 수 조정 가능) */
+  z-index: 1;
 }
 
 .title {

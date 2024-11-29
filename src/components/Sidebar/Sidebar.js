@@ -63,20 +63,11 @@ const Sidebar = ({ open, toggleSidebar }) => {
             </h3>
             <ul className={`sidebarList ${openManage ? "open" : ""}`}>
               <li className="sidebarListItem">
-                <Link to="/board">이벤트 관리</Link>
+                <Link to="/eventboard">이벤트 관리</Link>
               </li>
-            </ul>
-          </div>
-
-          <div className="sidebarMenu">
-            <h3 className="sidebarTitle" onClick={toggleLOL}>
-              놀아보자
-              <span className={`arrow ${openLOL ? "open" : ""}`}>▼</span>
-            </h3>
-            <ul className={`sidebarList ${openLOL ? "open" : ""}`}>
-              <li className="sidebarListItem">
-                <Link to="/searchplace/create">인디스트릿 공연장소 검색</Link>
-              </li>
+              {/* <li className="sidebarListItem">
+                <Link to="/feedbackboard">피드백 관리</Link>
+              </li> */}
             </ul>
           </div>
         </div>

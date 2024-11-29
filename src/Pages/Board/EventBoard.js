@@ -18,9 +18,9 @@ import {
 import Event from "../Event/Event";
 import MultiSelectAutocomplete from "../../components/MultiSelectAutocomplete/MultiSelectAutocomplete";
 import { fetchSingleData } from "../../utils/Utils";
-import Edit from "./Edit";
+import EventEdit from "./components/EventEdit";
 
-const Board = () => {
+const EventBoard = () => {
   const [events, setEvents] = useState([]);
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [openEditDialog, setOpenEditDialog] = useState(false);
@@ -202,7 +202,7 @@ const Board = () => {
 
       {/* 수정 대화상자 */}
       {openEditDialog && (
-        <Edit
+        <EventEdit
           openEditDialog={openEditDialog}
           setOpenEditDialog={setOpenEditDialog}
           selectedEvent={selectedEvent}
@@ -215,4 +215,4 @@ const Board = () => {
   );
 };
 
-export default Board;
+export default EventBoard;
