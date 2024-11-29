@@ -60,7 +60,7 @@ const App = () => {
                   <Route path="/artist/create" element={<Artist />} />
                   <Route path="/event/create" element={<Event />} />
                   <Route path="/eventBoard" element={<EventBoard />} />
-                  <Route path="/feedbackBoard" element={<FeedbackBoard />} />
+                  {/* <Route path="/feedbackBoard" element={<FeedbackBoard />} /> */}
                 </>
               ) : (
                 <Route
