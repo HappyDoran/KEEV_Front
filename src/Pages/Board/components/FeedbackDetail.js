@@ -55,6 +55,9 @@ const FeedbackDetail = ({
             variant="body2"
             style={{
               color: "#EAEAEA",
+              wordBreak: "break-word", // 단어가 길어도 줄바꿈
+              lineHeight: 1.5, // 줄 간격 조정
+              overflowWrap: "break-word", // 긴 단어가 있을 경우 줄바꿈
             }}
           >
             {selectedFeedback.description}

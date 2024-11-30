@@ -1,6 +1,5 @@
 import "../../Styles/Layout.css";
 import "../../Styles/Component.css";
-import axios from "axios";
 import { useState, useEffect } from "react";
 import {
   Typography,
@@ -9,12 +8,6 @@ import {
   ButtonGroup,
   Button,
   Box,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  TextField,
-  Autocomplete,
 } from "@mui/material";
 import FeedbackDetail from "./components/FeedbackDetail";
 import { fetchSingleData } from "../../utils/Utils";
@@ -58,7 +51,7 @@ const FeedbackBoard = () => {
             feedbacks.map((item) => (
               <ListItem
                 key={item.id}
-                // className="inputField"
+                className="inputField"
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
@@ -67,7 +60,7 @@ const FeedbackBoard = () => {
                 }}
               >
                 <Box
-                  flexGrow={2}
+                  flexGrow={1}
                   style={{
                     display: "flex",
                     alignItems: "flex-start",
@@ -78,6 +71,10 @@ const FeedbackBoard = () => {
                     className="line-clamp"
                     style={{
                       color: "#EAEAEA",
+                      maxWidth: "500px", // 원하는 최대 너비 설정
+                      overflowWrap: "break-word", // 긴 단어가 줄바꿈되도록 설정
+                      wordBreak: "break-word", // 긴 단어가 줄바꿈되도록 설정
+                      lineHeight: 1.5, // 줄 간격 설정
                     }}
                     variant="body2"
                   >
