@@ -65,9 +65,9 @@ const Sidebar = ({ open, toggleSidebar }) => {
               <li className="sidebarListItem">
                 <Link to="/eventboard">이벤트 관리</Link>
               </li>
-              {/* <li className="sidebarListItem">
+              <li className="sidebarListItem">
                 <Link to="/feedbackboard">피드백 관리</Link>
-              </li> */}
+              </li>
             </ul>
           </div>
         </div>

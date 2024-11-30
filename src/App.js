@@ -60,7 +60,7 @@ const App = () => {
                   <Route path="/artist/create" element={<Artist />} />
                   <Route path="/event/create" element={<Event />} />
                   <Route path="/eventBoard" element={<EventBoard />} />
-                  {/* <Route path="/feedbackBoard" element={<FeedbackBoard />} /> */}
+                  <Route path="/feedbackBoard" element={<FeedbackBoard />} />
                 </>
               ) : (
                 <Route
@@ -68,8 +68,7 @@ const App = () => {
                   element={<Auth setIsAuthenticated={setIsAuthenticated} />}
                 />
               )}
-              {/* <Route path="/feedback" element={<FeedBack />} /> */}
-              {/* 피드백 페이지 추가 */}
+              <Route path="/feedback" element={<FeedBack />} />
             </Routes>
           </main>
         </div>

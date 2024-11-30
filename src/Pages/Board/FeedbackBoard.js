@@ -1,4 +1,5 @@
 import "../../Styles/Layout.css";
+import "../../Styles/Component.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import {
@@ -26,9 +27,9 @@ const FeedbackBoard = () => {
     fetchSingleData(
       "feedback/get",
       (data) => {
-        setFeedbacks(data.description);
+        setFeedbacks(data.descriptions);
       },
-      "이벤트 목록 가져오기 실패"
+      "피드백 목록 가져오기 실패"
     );
   }, []);
 
@@ -57,7 +58,7 @@ const FeedbackBoard = () => {
             feedbacks.map((item) => (
               <ListItem
                 key={item.id}
-                className="inputField"
+                // className="inputField"
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
@@ -66,10 +67,20 @@ const FeedbackBoard = () => {
                 }}
               >
                 <Box
-                  flexGrow={1}
-                  style={{ display: "flex", alignItems: "flex-start" }}
+                  flexGrow={2}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    width: "90%",
+                  }}
                 >
-                  <Typography style={{ color: "#EAEAEA" }} variant="body2">
+                  <Typography
+                    className="line-clamp"
+                    style={{
+                      color: "#EAEAEA",
+                    }}
+                    variant="body2"
+                  >
                     {item.description}
                   </Typography>
                 </Box>

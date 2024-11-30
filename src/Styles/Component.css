@@ -26,3 +26,11 @@
 .removeButton:hover {
   color: #090505; /* 호버 시 색상 */
 }
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1; /* 줄 수를 1로 설정 */
+  overflow: hidden;
+  text-overflow: ellipsis; /* 넘치는 텍스트에 ... 표시 */
+}

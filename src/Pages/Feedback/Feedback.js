@@ -17,10 +17,14 @@ const FeedBack = () => {
       return;
     }
 
+    const feedbackData = { ["description"]: feedbackDescription };
+
+    console.log(feedbackData);
+
     try {
       const response = await axios.post(
         `${API_URL}/feedback/register`,
-        { decription: feedbackDescription },
+        feedbackData,
         {
           headers: {
             "Content-Type": "application/json",
