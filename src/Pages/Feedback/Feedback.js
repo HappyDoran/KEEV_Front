@@ -1,14 +1,11 @@
 import "../../Styles/Layout.css";
 import "../../Styles/Component.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { TextField, Button, TextareaAutosize } from "@mui/material";
 import axios from "axios";
-import { fetchSingleData } from "../../utils/Utils";
-import MultiSelectAutocomplete from "../../components/MultiSelectAutocomplete/MultiSelectAutocomplete";
 
 const FeedBack = () => {
   const [feedbackDescription, setFeedbackDescription] = useState("");
-
   const API_URL = process.env.REACT_APP_URL;
 
   const handleUpload = async () => {
@@ -17,7 +14,7 @@ const FeedBack = () => {
       return;
     }
 
-    const feedbackData = { ["description"]: feedbackDescription };
+    const feedbackData = { description: feedbackDescription };
 
     console.log(feedbackData);
 
@@ -43,8 +40,11 @@ const FeedBack = () => {
     <div className="container">
       <div className="wrapper">
         <h2 className="title">피드백을 남겨주시면 감사하겠습니다.</h2>
+        <div style={{ position: "absolute", color: "#eaeaea", left: "90%" }}>
+          {feedbackDescription.length}/500
+        </div>
         <div className="inputField">
-          <label className="label">피드백 작성란</label>
+          <label className="label">피드백 작성란(최대 500자) </label>
           <TextareaAutosize
             aria-label="content"
             minRows={5}
@@ -52,14 +52,20 @@ const FeedBack = () => {
               width: "100%",
               height: "100px",
               resize: "none",
-              borderRadius: "12px", // borderRadius를 12로 설정
-              backgroundColor: "#2A2830", // 배경색을 설정
-              color: "#eaeaea", // value 색상을 설정
-              border: "none", // 테두리 제거 (원하는 경우)
+              borderRadius: "12px",
+              backgroundColor: "#2A2830",
+              color: "#eaeaea",
+              border: "none",
             }}
             placeholder="내용을 입력해주세요."
             value={feedbackDescription}
-            onChange={(e) => setFeedbackDescription(e.target.value)}
+            onChange={(e) => {
+              const value = e.target.value;
+              if (value.length <= 500) {
+                // 글자 수 제한
+                setFeedbackDescription(value);
+              }
+            }}
           />
         </div>
 
