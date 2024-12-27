@@ -32,6 +32,8 @@ const EventBoard = () => {
     fetchSingleData(
       "event/get",
       (data) => {
+        console.log(data.events);
+
         setEvents(data.events);
         setFilteredEvents(data.events); // 초기 필터링된 이벤트 목록 설정
       },
@@ -150,7 +152,6 @@ const EventBoard = () => {
                     <Typography style={{ color: "#EAEAEA" }} variant="body2">
                       시작일 - 종료일: {item.startDate} - {item.endDate}
                     </Typography>
-
                     <Typography style={{ color: "#EAEAEA" }} variant="body2">
                       공연장:{" "}
                       {item.places && item.places.length > 0
