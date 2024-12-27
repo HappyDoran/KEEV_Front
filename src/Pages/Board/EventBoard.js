@@ -53,7 +53,7 @@ const EventBoard = () => {
   // 이벤트 삭제
   const handleDelete = async (eventID) => {
     try {
-      await axios.delete(`${API_URL}/event/${eventID}`);
+      await axios.delete(`${API_URL}/event/delete/${eventID}`);
       alert(`${eventID}번 이벤트 삭제를 성공했습니다!`);
       fetchSingleData(
         "event/get",

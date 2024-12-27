@@ -215,7 +215,7 @@ const Artist = () => {
           <label className="label">프로필 이미지 업로드*</label>
           <input
             type="file"
-            accept=".png,.jpeg,.gif"
+            accept=".png,.jpeg,.jpg,.gif"
             onChange={(e) => handleImage(e)}
           />
         </div>

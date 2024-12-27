@@ -381,7 +381,7 @@ const Event = () => {
           <label className="label">포스터 이미지 업로드*</label>
           <input
             type="file"
-            accept=".png,.jpeg,.gif"
+            accept=".png,.jpeg,.jpg,.gif"
             onChange={(e) => handleImage("poster", e)}
           />
         </div>
@@ -421,7 +421,7 @@ const Event = () => {
           <label className="label">상세 이미지 업로드</label>
           <input
             type="file"
-            accept=".png,.jpeg,.gif"
+            accept=".png,.jpeg,.jpg,.gif"
             onChange={(e) => handleImage("description", e)}
           />
         </div>
