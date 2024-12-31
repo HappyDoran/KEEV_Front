@@ -1,4 +1,4 @@
-import "./Styles/App.css";
+import "./Styles/Layout.css";
 import React, { useState, useEffect } from "react"; // useState 추가
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Topbar from "./components/Topbar/Topbar";
@@ -10,7 +10,7 @@ import Country from "./Pages/Country/Country";
 import Genre from "./Pages/Genre/Genre";
 import Place from "./Pages/Place/Place";
 import Artist from "./Pages/Artist/Artist";
-import Main from "./Pages/Main/Main";
+import Home from "./Pages/Home/Home";
 import Auth from "./Pages/Auth/Auth";
 import FeedBack from "./Pages/Feedback/Feedback";
 import FeedbackBoard from "./Pages/Board/FeedbackBoard";
@@ -37,22 +37,19 @@ const App = () => {
       <div>
         {isAuthenticated && <Topbar />}
         <div style={{ display: "flex" }}>
-          {/* <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} /> */}
           {isAuthenticated && (
             <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
           )}
           <main
             style={{
               flexGrow: 1,
-              padding: "20px",
-              transition: "margin-left 0.3s ease", // 부드러운 전환 효과 추가
               marginLeft: sidebarOpen ? "250px" : "0", // Sidebar가 열릴 때 margin 조정
             }}
           >
             <Routes>
               {isAuthenticated ? (
                 <>
-                  <Route path="/" element={<Main />} />
+                  <Route path="/" element={<Home />} />
                   <Route path="/eventType/create" element={<EventType />} />
                   <Route path="/country/create" element={<Country />} />
                   <Route path="/genre/create" element={<Genre />} />

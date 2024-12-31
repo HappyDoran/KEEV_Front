@@ -275,10 +275,10 @@ const EventEdit = ({
         {/* 선택된 장소 목록 */}
         <div className="selectedCountries" style={{ marginTop: "20px" }}>
           {selectedEvent.places.map((place) => (
-            <div key={place.id} className="countryChip">
+            <div key={place.id} className="chip">
               <span>{place.name}</span>
               <button
-                className="removeButton"
+                className="chipRemoveButton"
                 onClick={() =>
                   handleEditItem(
                     "places", // 'places'는 selectedEvent의 키
@@ -312,10 +312,10 @@ const EventEdit = ({
         {/* 선택된 장르 목록 */}
         <div className="selectedCountries" style={{ marginTop: "20px" }}>
           {selectedEvent.genres.map((genre) => (
-            <div key={genre.id} className="countryChip">
+            <div key={genre.id} className="chip">
               <span>{genre.name}</span>
               <button
-                className="removeButton"
+                className="chipRemoveButton"
                 onClick={() =>
                   handleEditItem(
                     "genres",
@@ -349,10 +349,10 @@ const EventEdit = ({
         {/* 선택된 아티스트 목록 */}
         <div className="selectedCountries" style={{ marginTop: "20px" }}>
           {selectedEvent.artists.map((artist) => (
-            <div key={artist.id} className="countryChip">
+            <div key={artist.id} className="chip">
               <span>{artist.name}</span>
               <button
-                className="removeButton"
+                className="chipRemoveButton"
                 onClick={() =>
                   handleEditItem(
                     "artists",

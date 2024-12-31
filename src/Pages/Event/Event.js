@@ -205,10 +205,10 @@ const Event = () => {
         {/* 선택된 장소 목록 */}
         <div className="selectedCountries" style={{ marginTop: "20px" }}>
           {event.placeIDs.map((id) => (
-            <div key={id} className="countryChip">
+            <div key={id} className="chip">
               <span>{places.find((p) => p.id === id)?.name}</span>
               <button
-                className="removeButton"
+                className="chipRemoveButton"
                 onClick={() =>
                   handleRemoveItem("placeIDs", setEvent, event, id)
                 }
@@ -231,10 +231,10 @@ const Event = () => {
         {/* 선택된 장르 목록 */}
         <div className="selectedCountries" style={{ marginTop: "20px" }}>
           {event.genreIDs.map((id) => (
-            <div key={id} className="countryChip">
+            <div key={id} className="chip">
               <span>{genres.find((g) => g.id === id)?.name}</span>
               <button
-                className="removeButton"
+                className="chipRemoveButton"
                 onClick={() =>
                   handleRemoveItem("genreIDs", setEvent, event, id)
                 }
@@ -257,10 +257,10 @@ const Event = () => {
         {/* 선택된 아티스트 목록 */}
         <div className="selectedCountries" style={{ marginTop: "20px" }}>
           {event.artistIDs.map((id) => (
-            <div key={id} className="countryChip">
+            <div key={id} className="chip">
               <span>{artists.find((a) => a.id === id)?.name}</span>
               <button
-                className="removeButton"
+                className="chipRemoveButton"
                 onClick={() =>
                   handleRemoveItem("artistIDs", setEvent, event, id)
                 }

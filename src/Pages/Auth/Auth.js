@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+
+import "../../Styles/Layout.css";
+import "../../Styles/Component.css";
 import imgfile from "../../assets/Logo.png";
 import { TextField, Button } from "@mui/material";
-import "../../Styles/Layout.css";
 
 const Auth = ({ setIsAuthenticated }) => {
   // 구조 분해 할당으로 수정
@@ -21,9 +23,9 @@ const Auth = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div className="main-container">
-      <img src={imgfile} width="50%" alt="메인 이미지" className="main-image" />
-      <div className="main-wrapper">
+    <div className="loginMain-container">
+      <img src={imgfile} alt="메인 이미지" className="main-image" />
+      <div className="loginMain-wrapper">
         <h2 className="title">로그인</h2>
         <div className="inputField">
           <TextField

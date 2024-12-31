@@ -143,10 +143,10 @@ const Artist = () => {
 
         <div className="selectedCountries" style={{ marginTop: "20px" }}>
           {artist.countryIDs.map((id) => (
-            <div key={id} className="countryChip">
+            <div key={id} className="chip">
               <span>{countries.find((c) => c.id === id)?.name}</span>
               <button
-                className="removeButton"
+                className="chipRemoveButton"
                 onClick={() => {
                   const newIDs = artist.countryIDs.filter(
                     (countryId) => countryId !== id
@@ -193,10 +193,10 @@ const Artist = () => {
         {/* 선택된 장르 목록 */}
         <div className="selectedCountries" style={{ marginTop: "20px" }}>
           {artist.genreIDs.map((id) => (
-            <div key={id} className="countryChip">
+            <div key={id} className="chip">
               <span>{genres.find((g) => g.id === id)?.name}</span>
               <button
-                className="removeButton"
+                className="chipRemoveButton"
                 onClick={() => {
                   const newIDs = artist.genreIDs.filter(
                     (genreId) => genreId !== id

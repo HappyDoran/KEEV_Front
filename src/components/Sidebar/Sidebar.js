@@ -1,6 +1,6 @@
 import { React, useState } from "react";
+import "../../Styles/Layout.css";
 import { Link } from "react-router-dom";
-import "./Sidebar.css"; // 스타일을 위한 CSS 파일
 
 const Sidebar = ({ open, toggleSidebar }) => {
   const [openRegister, setOpenRegister] = useState(false);
