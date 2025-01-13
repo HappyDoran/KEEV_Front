@@ -1,13 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  useDeleteEvent,
-  useGetEventById,
-  useGetEventList,
-  useGetEventByPagination,
-  useGetSearchedEvent,
-} from '../../apis/event';
+import { useDeleteEvent, useGetEventByPagination, useGetSearchedEvent } from '../../apis/event';
 import { List, Typography } from '@mui/material';
-import { KeevEvent, PaginationEvent } from '../../apis/event.types';
+import { PaginationEvent } from '../../apis/event.types';
 import EventSearchField from './components/EventSearchField';
 import EventCell from './components/EventCell';
 import EventEditBox from './components/EventEditBox';

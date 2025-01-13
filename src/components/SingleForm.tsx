@@ -1,8 +1,4 @@
 import { useState } from 'react';
-import { TextField, Button } from '@mui/material';
-import { EventTypeParams } from '../apis/eventType.types';
-import { useEventType } from '../apis/eventType';
-import { ApiError, ApiResponse } from '../types/common';
 import { InputValue, InputValueForm } from './common/InputValueForm';
 import CommonButton from './common/CommonButton';
 

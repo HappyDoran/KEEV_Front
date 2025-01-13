@@ -1,11 +1,6 @@
 import { Dialog, DialogContent, DialogTitle, TextareaAutosize } from '@mui/material';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
-import {
-  EventDataParams,
-  EventEditParams,
-  KeevEvent,
-  PaginationEvent,
-} from '../../../apis/event.types';
+import { EventDataParams, EventEditParams } from '../../../apis/event.types';
 import { useGetPlaceList } from '../../../apis/place';
 import { useGetGenreList } from '../../../apis/genre';
 import { useGetArtistList } from '../../../apis/artist';
@@ -180,7 +175,7 @@ const EventEditBox = ({ openEditDialog, setOpenEditDialog, selectedEventId }: Ev
     });
 
     loadImages(selectedEventData[0].posterImageURL, selectedEventData[0].descriptionImageURLS);
-  }, [selectedEventData]);
+  }, [selectedEventData, loadImages]);
 
   return (
     <Dialog open={openEditDialog} onClose={setOpenEditDialog} fullWidth maxWidth="md">

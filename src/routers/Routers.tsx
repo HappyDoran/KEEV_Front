@@ -1,5 +1,5 @@
 import Loading from 'components/Loading';
-import React, { Dispatch, lazy, Suspense, useEffect, useState } from 'react';
+import React, { Dispatch, lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router';
 
 const Auth = lazy(() => import('../pages/Auth/Auth'));
