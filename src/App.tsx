@@ -16,7 +16,7 @@ const App = (props: any) => {
       <BrowserRouter basename={props.basename}>
         <Layout {...props} />
       </BrowserRouter>
-      <ReactQueryDevtools />
+      {/* <ReactQueryDevtools /> */}
     </QueryClientProvider>
   );
 };
