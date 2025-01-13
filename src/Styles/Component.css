@@ -1,4 +1,54 @@
-.countryChip {
+.main-image {
+  width: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  filter: blur(13px);
+  z-index: 1;
+}
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #7556ff;
+}
+
+.inputField {
+  margin-bottom: 15px;
+}
+
+.TextField {
+  background-color: black;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #7556ff;
+}
+
+.textarea {
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  resize: none;
+  background-color: #2a2830;
+  color: black;
+  min-height: 100px;
+}
+
+.fileInput {
+  margin-top: 8px;
+  color: white;
+}
+
+.buttonContainer {
+  display: flex; /* Flexbox 사용 */
+  justify-content: flex-end; /* 오른쪽 정렬 */
+}
+
+.chip {
   display: inline-flex;
   align-items: center;
   padding: 8px 16px;
@@ -10,7 +60,7 @@
   font-size: 17px;
 }
 
-.removeButton {
+.chipRemoveButton {
   background: none;
   border: none;
   font-size: 14px;
@@ -23,7 +73,7 @@
   right: -5px; /* X 버튼 위치 조정 */
 }
 
-.removeButton:hover {
+.chipRemoveButton:hover {
   color: #090505; /* 호버 시 색상 */
 }
 
@@ -31,6 +81,7 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1; /* 1줄로 제한 */
+  line-clamp: 1;
   overflow: hidden;
   text-overflow: ellipsis; /* 넘치는 텍스트에 ... 표시 */
   /* max-width: 1000px; 원하는 최대 너비 설정 (필요에 따라 조정) */
