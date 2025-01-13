@@ -81,6 +81,7 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1; /* 1줄로 제한 */
+  line-clamp: 1;
   overflow: hidden;
   text-overflow: ellipsis; /* 넘치는 텍스트에 ... 표시 */
   /* max-width: 1000px; 원하는 최대 너비 설정 (필요에 따라 조정) */

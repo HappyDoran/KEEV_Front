@@ -9,7 +9,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
 }
 
 .loginMain-wrapper {
@@ -33,10 +33,42 @@ main {
 .wrapper {
   background-color: #100f11;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
   padding: 20px;
   width: 90%;
   max-width: 90%;
+}
+
+header {
+  position: fixed; /* 화면 상단에 고정 */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4rem; /* 헤더 높이 (64px) */
+  background-color: black; /* 배경색 */
+  z-index: 50; /* 다른 요소 위에 표시 */
+}
+
+/* 컨테이너 스타일 */
+header .container {
+  height: 100%; /* 부모 요소의 높이와 동일하게 설정 */
+  display: flex; /* Flexbox 사용 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+}
+
+header .logoImage {
+  width: auto; /* 로고 이미지 크기 */
+  height: 1.8rem;
+  display: flex;
+}
+
+.topRight {
+  position: absolute;
+  right: 0;
+  padding: 20px;
+  display: flex;
+  align-items: center; /* 수직 중앙 정렬 */
 }
 
 /* Sidebar.css */
@@ -49,7 +81,7 @@ main {
   flex-direction: column;
   padding: 20px;
   position: fixed;
-  left: -250px; /* 기본적으로 화면 밖에 위치 */
+  left: -240px; /* 기본적으로 화면 밖에 위치 */
   top: 0;
   transition: left 0.3s ease; /* 부드러운 이동 효과 */
 }
@@ -60,10 +92,12 @@ main {
 
 .sidebarWrapper {
   flex: 1;
+  padding-top: 80px;
 }
 
 .sidebarMenu {
   margin-bottom: 20px;
+  padding-top: 0px;
 }
 
 .sidebarTitle {
@@ -96,7 +130,7 @@ main {
 }
 
 .sidebarListItem {
-  margin: 10px 0;
+  margin: 5px 0;
   padding-bottom: 5px;
 }
 
@@ -115,15 +149,17 @@ main {
 /* 버튼 스타일 수정 */
 .toggleButton {
   position: absolute; /* Sidebar 안에 위치하도록 절대 위치 설정 */
-  top: 5px; /* 상단에서의 거리 */
-  right: -35px; /* Sidebar가 접혔을 때 오른쪽으로 이동 (버튼 너비에 따라 조정) */
+  top: 70px; /* 상단에서의 거리 */
+  right: 0px; /* Sidebar가 접혔을 때 오른쪽으로 이동 (버튼 너비에 따라 조정) */
   background-color: #222222; /* 버튼 배경색 */
   color: white; /* 버튼 텍스트 색상 */
   border: none; /* 기본 테두리 제거 */
   padding: 10px; /* 패딩 */
   border-radius: 4px; /* 둥근 모서리 */
   cursor: pointer; /* 커서 포인터로 변경 */
-  transition: background-color 0.3s, right 0.3s; /* 배경색과 위치 전환 효과 */
+  transition:
+    background-color 0.3s,
+    right 0.3s; /* 배경색과 위치 전환 효과 */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
   z-index: 1000; /* Sidebar보다 위에 표시 */
 }
@@ -155,19 +191,6 @@ main {
   justify-content: center; /* 중앙 정렬 */
 }
 
-.logoImage {
-  width: 5%; /* 로고 이미지 크기 */
-}
-
-.topRight {
-  position: absolute;
-  right: 0;
-  padding: 20px;
-  margin-top: 10px;
-  display: flex;
-  align-items: center; /* 수직 중앙 정렬 */
-}
-
 .logout {
   top: 5px; /* 상단에서의 거리 */
   right: -35px; /* Sidebar가 접혔을 때 오른쪽으로 이동 (버튼 너비에 따라 조정) */
@@ -177,15 +200,9 @@ main {
   padding: 10px; /* 패딩 */
   border-radius: 4px; /* 둥근 모서리 */
   cursor: pointer; /* 커서 포인터로 변경 */
-  transition: background-color 0.3s, right 0.3s; /* 배경색과 위치 전환 효과 */
+  transition:
+    background-color 0.3s,
+    right 0.3s; /* 배경색과 위치 전환 효과 */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
   z-index: 1000; /* Sidebar보다 위에 표시 */
-}
-
-.topBarUserInfo {
-  font-weight: bold;
-}
-
-.topBarUserInfo button {
-  margin-left: 10px; /* 버튼과 사용자 정보 간의 간격 추가 */
 }
