@@ -1,5 +1,5 @@
 import React from 'react';
-import { KeevEvent, PaginationEvent } from '../../../apis/event.types';
+import { PaginationEvent } from '../../../apis/event.types';
 import { ListItem, Box, Typography, ButtonGroup, Button } from '@mui/material';
 
 interface EventCellProps {

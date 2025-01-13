@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 import useToggle from '../hooks/useToggle';
-import { Button } from '@mui/material';
 
 const SideBar = ({ open, toggleSideBar }: { open: boolean; toggleSideBar: () => void }) => {
   const [isRegister, toggleIsRegister] = useToggle(false);

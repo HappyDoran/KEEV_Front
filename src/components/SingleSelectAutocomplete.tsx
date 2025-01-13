@@ -1,6 +1,5 @@
-import { Autocomplete, TextField } from '@mui/material';
 import React from 'react';
-import { Country } from '../apis/country.types';
+import { Autocomplete, TextField } from '@mui/material';
 
 interface SingleSelectAutocompleteProps {
   options: { id: number; name: string }[];

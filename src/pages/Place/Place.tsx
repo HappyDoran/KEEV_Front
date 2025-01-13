@@ -1,13 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { ApiError, ApiResponse } from '../../types/common';
 import { usePlace } from '../../apis/place';
 import { PlaceParams } from '../../apis/place.types';
 import { useGetCountryList } from '../../apis/country';
-import { Autocomplete, Button, TextField } from '@mui/material';
 import { InputValueForm } from '../../components/common/InputValueForm';
 import CommonButton from '../../components/common/CommonButton';
 import SingleSelectAutocomplete from '../../components/SingleSelectAutocomplete';
-import { Country } from '../../apis/country.types';
 import KakaoMap from 'components/KakaoMap';
 
 const Place = () => {

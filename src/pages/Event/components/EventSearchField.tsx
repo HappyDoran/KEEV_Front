@@ -1,6 +1,6 @@
 import { Autocomplete, TextField } from '@mui/material';
 import React from 'react';
-import { KeevEvent, PaginationEvent } from '../../../apis/event.types';
+import { PaginationEvent } from '../../../apis/event.types';
 
 interface EventSearchFieldProps {
   eventData: PaginationEvent[] | undefined;
