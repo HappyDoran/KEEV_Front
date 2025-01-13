@@ -18,7 +18,7 @@ export type GetArtistFnType = () => UseQueryResult<Artist[]>;
 export type ArtistDataParams = {
   artistName: string;
   genreIDs: number[];
-  description: string;
+  description: string | null;
   countryIDs: number[];
 };
 

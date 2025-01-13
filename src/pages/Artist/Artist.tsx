@@ -36,10 +36,11 @@ const Artist = () => {
   const { mutate } = useArtist(onSuccess, onError);
 
   const handleSubmit = () => {
+    console.log(inputValue);
+
     if (
       !inputValue.artistName.trim() ||
       !inputValue.genreIDs.length ||
-      !inputValue.description.trim() ||
       !inputValue.countryIDs.length ||
       !profileImage
     ) {
