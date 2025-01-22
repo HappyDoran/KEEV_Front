@@ -11,6 +11,7 @@ import SingleSelectAutocomplete from '../../../components/SingleSelectAutocomple
 import { useEditEvent, useGetEventById } from '../../../apis/event';
 import CommonButton from '../../../components/common/CommonButton';
 import { ApiError, ApiResponse } from '../../../types/common';
+import useMakeSaveUrl from '../../../hooks/useMakeSaveUrl';
 
 interface EventEditProps {
   openEditDialog: boolean;
@@ -43,6 +44,8 @@ const EventEditBox = ({ openEditDialog, setOpenEditDialog, selectedEventId }: Ev
   const { data: eventTypeData } = useGetEventTypeList();
   const { data: selectedEventData } = useGetEventById(selectedEventId);
 
+  const makeSaveUrl = useMakeSaveUrl();
+
   const onSuccess = (data: ApiResponse<null>) => {
     alert('이벤트 수정 성공');
     setOpenEditDialog();
@@ -71,7 +74,9 @@ const EventEditBox = ({ openEditDialog, setOpenEditDialog, selectedEventId }: Ev
 
       const newUrl = url.replace(S3_URL, CLOUDFRONT_URL);
 
-      const response = await fetch(newUrl);
+      const saveUrl = makeSaveUrl(newUrl);
+
+      const response = await fetch(saveUrl);
       if (!response.ok) {
         throw new Error(`파일을 가져오는 데 실패했습니다: ${response.statusText}`);
       }
@@ -79,7 +84,7 @@ const EventEditBox = ({ openEditDialog, setOpenEditDialog, selectedEventId }: Ev
       const blob = await response.blob();
       return new File([blob], filename, { type: blob.type });
     },
-    [S3_URL, CLOUDFRONT_URL],
+    [S3_URL, CLOUDFRONT_URL, makeSaveUrl],
   );
 
   const loadImages = useCallback(
