@@ -1,6 +1,7 @@
 import React from 'react';
 import { PaginationEvent } from '../../../apis/event.types';
 import { ListItem, Box, Typography, ButtonGroup, Button } from '@mui/material';
+import useMakeSaveUrl from 'hooks/useMakeSaveUrl';
 
 interface EventCellProps {
   event: PaginationEvent;
@@ -9,6 +10,8 @@ interface EventCellProps {
 }
 
 const EventCell = (props: EventCellProps) => {
+  const makeSaveUrl = useMakeSaveUrl();
+
   return (
     <ListItem
       key={props.event.id}
@@ -23,7 +26,7 @@ const EventCell = (props: EventCellProps) => {
       <Box flexGrow={1} style={{ display: 'flex', alignItems: 'flex-start' }}>
         {props.event.posterURL && (
           <img
-            src={props.event.posterURL}
+            src={makeSaveUrl(props.event.posterURL)}
             alt={props.event.name}
             style={{
               width: '100px',
