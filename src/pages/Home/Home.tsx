@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import imgFile from '../../assets/Logo.png';
+import imgFile from '../../assets/HomeLogo.png';
 
 const Home = () => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -30,20 +30,16 @@ const Home = () => {
                 rotateY(${offset.x}deg) 
                 rotateX(${offset.y}deg)`,
     position: 'absolute',
-    top: '50%',
+    top: '40%',
     left: '50%',
-    width: '300px', // 이미지의 너비를 설정합니다
-    height: 'auto', // 높이는 자동으로 설정합니다
-    transition: 'transform 0.1s ease-out', // 부드러운 애니메이션을 추가합니다
+    width: '300px',
+    height: 'auto',
+    transition: 'transform 0.1s ease-out',
   };
 
   return (
     <div style={{ position: 'relative', height: '100vh' }}>
-      <img
-        src={imgFile} // 여기에 이미지 URL을 입력하세요
-        alt="Interactive"
-        style={cardStyle}
-      />
+      <img src={imgFile} alt="Interactive" style={cardStyle} />
     </div>
   );
 };
