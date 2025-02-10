@@ -1,9 +1,12 @@
 import React from 'react';
+import Title from './components/Title';
+import Logo from './components/Logo';
 
 const Home = () => {
   return (
-    <div>
-      <h1>홈 페이지</h1>
+    <div style={{ position: 'relative', height: '100vh' }}>
+      <Logo />
+      <Title />
     </div>
   );
 };
