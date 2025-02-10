@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import imgFile from '../../assets/HomeLogo.png';
+import Logo from '../../assets/HomeLogo.png';
+import Title from '../../assets/HomeTitle.png';
 
 const Home = () => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -30,7 +31,7 @@ const Home = () => {
                 rotateY(${offset.x}deg) 
                 rotateX(${offset.y}deg)`,
     position: 'absolute',
-    top: '40%',
+    top: '35%',
     left: '50%',
     width: '300px',
     height: 'auto',
@@ -39,7 +40,17 @@ const Home = () => {
 
   return (
     <div style={{ position: 'relative', height: '100vh' }}>
-      <img src={imgFile} alt="Interactive" style={cardStyle} />
+      <img src={Logo} alt="Interactive" style={cardStyle} />
+      <img
+        src={Title}
+        style={{
+          width: '500px',
+          display: 'block',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          marginTop: '7%',
+        }}
+      />
     </div>
   );
 };
