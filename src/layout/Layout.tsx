@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Routers from '../routers/Routers';
 import SideBar from '../components/SideBar';
 import useToggle from '../hooks/useToggle';
 import Header from '../components/Header';
 
 const Layout = (props: any) => {
+  const location = useLocation();
   const [isSidebarOpen, toggleIsSidebarOpen] = useToggle(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -32,4 +34,5 @@ const Layout = (props: any) => {
     </div>
   );
 };
+
 export default Layout;
