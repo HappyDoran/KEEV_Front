@@ -34,7 +34,7 @@ export type PaginationEvent = {
   name: string;
   createdDate: string;
   posterURL: string;
-  placeNames: string[];
+  placeNameList: string[];
 };
 
 export type GetPagingationEventFnType = () => UseInfiniteQueryResult<PaginationEvent[]>;
