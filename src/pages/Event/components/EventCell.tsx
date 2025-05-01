@@ -42,8 +42,8 @@ const EventCell = (props: EventCellProps) => {
           </Typography>
           <Typography style={{ color: '#EAEAEA' }} variant="body2">
             공연장:{' '}
-            {props.event.placeNames.length > 0
-              ? props.event.placeNames.map((place, index) => place).join(', ')
+            {props.event.placeNameList.length > 0
+              ? props.event.placeNameList.map((place, index) => place).join(', ')
               : '등록된 공연장이 없습니다.'}
           </Typography>
         </Box>
